@@ -1,0 +1,47 @@
+
+import java.util.Comparator;
+import java.lang.Comparable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Collections;
+public class Test{
+	public static void main(String[] args){
+		ArrayList<Student> list=new ArrayList<Student>();
+		list.add(new Student(4,"lufy"));
+		list.add(new Student(2,"robin"));
+		list.add(new Student(1,"zoro"));
+		list.add(new Student(5,"ussup"));
+		list.add(new Student(3,"nami"));
+		Iterator it=list.iterator();
+		Collections.sort(list);
+		while(it.hasNext()){
+			Student st=(Student)it.next();
+			System.out.println(st);
+		}
+		System.out.println();
+		Collections.sort(list,new Student());
+		it=list.iterator();
+		while(it.hasNext()){
+			Student st=(Student)it.next();
+			System.out.println(st);
+		}
+	}
+}
+class Student  implements Comparator<Student>, Comparable<Student>{
+	private int rollNo;
+	private String name;
+	public Student(){};
+	public Student (int rollNo, String name){
+		this.rollNo=rollNo;
+		this.name=name;
+	}
+	public int compare(Student st1, Student st2){
+		return st1.rollNo-st2.rollNo;
+	}
+	public int compareTo(Student st){
+		return this.name.compareTo(st.name);
+	}
+	public String toString(){
+		return this.rollNo+"  "+this.name;
+	}
+}
