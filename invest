@@ -1,0 +1,19 @@
+1:debt to equity ratio (Lower the better, company's balance sheet)
+  debt->  Company sells the debt instruments to the investor with the promise that the money invested + the interest will be returned back to the investor at the time of crisis.
+		  Debt financing occurs when a firm sells fixed income products, such as bonds, bills, or notes, to investors to obtain the capital needed to grow and expand its operations. 
+		  When a company issues a bond, the investors that purchase the bond are lenders who are either retail or institutional investors that provide the company with debt financing. 
+		  The amount of the investment loan, referred to as the principal, must be paid back at some agreed date in the future. 
+		  If the company goes bankrupt, lenders have a higher claim on any liquidated assets than shareholders. 
+
+  equity=asset(Total real Value of the business)- liabilities(outstanding debt)
+  (Shares)--> one's onwership in the asset after all the debts are paid off.
+			  It gives the shareholder a claim on future earnings, but it does not need to be paid back.
+			  If the company goes bankrupt, equity holders are the last in line to receive money
+ 
+  
+2:CAGR-->	Compound annual growth rate
+			CAGR=(EV/BV)^(1/n)-1
+			where
+				EV = Investment's ending value
+				BV = Investment's beginning value
+				n   = Number of periods (months, years, etc.)
