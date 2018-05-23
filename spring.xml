@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+<!-- Different ways to initialize an object  
+1:setter injection
+2:constructor injection
+ -->
+	<!-- <bean id="triangle" class="Triangle">
+		<property name="type" value="equilateral"/>
+	</bean>
+	 -->
+	<!-- <bean id="triangle" class="Triangle">
+		<constructor-arg type="int" value="20"></constructor-arg>
+	</bean>
+	 -->
+	 <!--<bean id="triangle" class= "Triangle" >
+	 	<constructor-arg index="0" value="20" ></constructor-arg>
+	 	<constructor-arg index="1" value="Equilateral" ></constructor-arg>
+	 </bean>
+	 -->
+	<!-- <bean id="triangle" class="Triangle">
+	 	<constructor-arg type="java.lang.String" value="Equilateral"></constructor-arg>
+	 	<constructor-arg type="int" value="10"></constructor-arg>
+	 </bean>
+	 -->
+	 
+	 
+	 
+	 <bean id="parentBean" class ="Triangle" abstract="true"><!-- with abstract="true", no instance will be created for the parentBean only reference will be created ie Triangle constructor wont be called,neither will any of the init methods -->
+	 	<property name="a" ref="pointA"/>
+	 </bean>
+	 
+	 <!-- when injecting object use ref instead of value -->
+	 <bean id="pointA" class="Point">
+	 	<property name="x" value="${pointA.x}"></property>
+	 	<property name="y" value="${pointA.y}"></property>
+	 </bean>
+	 <bean id="pointB" class="Point">
+	 	<property name="x" value="100"></property>
+	 	<property name="y" value="200"></property>
+	 </bean>
+	 <bean id="pointC" class="Point" >
+	 	<property  name ="x" value="1000"></property>
+	 	<property  name ="y" value="2000"></property>
+	 </bean>
+	 <!-- singleton means one bean per applicationContext object, if there are multiple applicationContext objects then there will multiple instances of that singleton -->
+	 <!-- <bean id='triangle' class="Triangle" scope="singleton">
+	 	<property name ="a" ref="pointA"></property>
+	 	<property name ="b" ref="pointB"></property>
+	 	<property name ="c">
+	 		<bean class="Point">
+	 			<property  name ="x" value="1000"></property>
+	 			<property  name ="y" value="2000"></property>
+	 		</bean>
+	 	</property>
+	 </bean>
+	  -->
+	  <bean id ="triangle" class="Triangle" parent ="parentBean" init-method="init" destroy-method="destroy">
+	  	
+	  	<property name="b" ref="pointB"/>
+	  	<property name="c" ref="pointC"/>
+	  </bean>
+	 <!-- <bean class="PrintNamePostProcessor"/> --> 
+	 <bean class="BeanFactoryPP"></bean>
+	 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	 	<property name="locations" value="pointsProp.properties"/>
+	 </bean>
+</beans>
